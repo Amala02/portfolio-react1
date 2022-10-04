@@ -1,16 +1,6 @@
-import React, { Component} from 'react';
-
-/*function App(){
-    return(
-
-        <div className="App">
-            <Head />
-        </div>
-
-    );
-}*/
-
-import FluidAnimation from 'C:\Users\shwetah\portfolio-react\node_modules\react-fluid-animation';
+import React, { Component } from 'react';
+import FluidAnimation from 'react-fluid-animation';
+import Head from './header_comp/header';
 
 const defaultConfig = {
     textureDownsample: 1,
@@ -22,7 +12,7 @@ const defaultConfig = {
     splatRadius: 0.005
   }
  
-export default class App extends Component {
+class App extends Component {
     state = {
         config: {
           ...defaultConfig
@@ -37,7 +27,7 @@ export default class App extends Component {
       return (
         <div
         style={{
-          height: '100vh'
+          height: "100vh"
         }}
       >
         <FluidAnimation
@@ -47,7 +37,7 @@ export default class App extends Component {
 
          <div
           style={{
-            position: 'absolute',
+            position: "absolute",
             zIndex: 1,
             top: 0,
             left: 0,
@@ -70,7 +60,7 @@ export default class App extends Component {
             }}
             >
 
-            React Fluid Animation
+            <Head />
           </h1>
     
       
@@ -97,3 +87,4 @@ export default class App extends Component {
   }
 }
 
+export default App;
