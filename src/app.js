@@ -1,7 +1,6 @@
-import React from "react";
-import Head from "./header_comp/header";
+import React, { Component} from 'react';
 
-function App(){
+/*function App(){
     return(
 
         <div className="App">
@@ -12,6 +11,7 @@ function App(){
 }*/
 
 import FluidAnimation from 'C:\Users\shwetah\portfolio-react\node_modules\react-fluid-animation';
+
 const defaultConfig = {
     textureDownsample: 1,
     densityDissipation: 0.98,
@@ -27,7 +27,73 @@ export default class App extends Component {
         config: {
           ...defaultConfig
         }
-}
+      }
+    render () {
+        const {
+            config
+          } = this.state
 
-export default App;
+
+      return (
+        <div
+        style={{
+          height: '100vh'
+        }}
+      >
+        <FluidAnimation
+          config= {config}
+          animationRef={this._animationRef}
+        />
+
+         <div
+          style={{
+            position: 'absolute',
+            zIndex: 1,
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            padding: '1em',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+            color: '#fff',
+            fontFamily: 'Quicksand, "Helvetica Neue", sans-serif',
+            pointerEvents: 'none'
+          }}
+        >
+            <h1
+            style={{
+              fontSize: '3em',
+              textShadow: '2px 2px 8px rgba(0, 0, 0, 0.5)'
+            }}
+            >
+
+            React Fluid Animation
+          </h1>
+    
+      
+        </div>
+    </div>
+    )
+  }
+
+  
+  _animationRef = (ref) => {
+    this._animation = ref
+  }
+
+  _onUpdate = (config) => {
+    this.setState({ config })
+  }
+
+  _onClickRandomSplats = () => {
+    this._animation.addSplats(5 + Math.random() * 20 | 0)
+  }
+
+  _onReset = () => {
+    this.setState({ config: { ...defaultConfig } })
+  }
+}
 
